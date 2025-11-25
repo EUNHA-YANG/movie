@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style2.css" />
+
+    <!-- Swiper -->
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  </head>
+  <body>
+    <!-- Swiper -->
+    <section id="visual">
+      <div class="swiper mySwiper">
+        <div class="swiper-wrapper"></div>
+        <div class="swiper-pagination"></div>
+      </div>
+      <!-- 중앙 글귀 -->
+      <div class="visual-text">
+        <h1>오늘의 추천 영화</h1>
+        <p>마음에 드는 영화를 찾아보세요</p>
+      </div>
+    </section>
+
+    <div class="menu">
+      <button type="button" onclick="movie('now_playing')">현재상영작</button>
+      <button type="button" onclick="movie('popular')">무비차트</button>
+      <button type="button" onclick="movie('top_rated')">추천영화</button>
+      <button type="button" onclick="movie('upcoming')">상영예정</button>
+    </div>
+
+    <div class="search">
+      <input
+        type="text"
+        id="searchInput"
+        placeholder="영화 제목을 입력하세요"
+      />
+      <button type="button" id="searchBtn">검색</button>
+    </div>
+
+    <section id="movieBoard"></section>
+
+    <div class="more"><a href="#">더보기</a></div>
+
+    <footer>
+      <p>© 2025 EnHa Movie. All rights reserved.</p>
+    </footer>
+
+    <script src="custom3.js"></script>
+  </body>
+</html>
+<!-- 
+
+url은 기본주소
+기본주소에 추가를 하는것은 파라미터=값
+처음에 파라미터를 추가할때는 앞에 ?
+-->
