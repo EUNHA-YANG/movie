@@ -131,3 +131,43 @@ moreBtn.addEventListener("click", (e) => {
   currentPage++;
   movie(null, true);
 });
+
+// 인기 배우 로드
+let loadPopularActors = async () => {
+  let url = `https://api.themoviedb.org/3/person/popular?api_key=${apikey}&language=ko-KR&page=1`;
+
+  try {
+    let response = await fetch(url);
+    let data = await response.json();
+
+    let actors = data.results.slice(0, 8); // 상위 8명
+    let actorsGrid = document.querySelector(".actors-grid");
+
+    actorsGrid.innerHTML = "";
+
+    actors.forEach((actor, index) => {
+      let actorCard = `
+        <div class="actor-card" data-aos="fade-up" data-aos-delay="${
+          index * 100
+        }">
+          <img src="https://image.tmdb.org/t/p/w500${actor.profile_path}" 
+               alt="${actor.name}" 
+               class="actor-image"
+               onerror="this.src='https://via.placeholder.com/300x400?text=No+Image'">
+          <div class="actor-popularity">⭐ ${actor.popularity.toFixed(0)}</div>
+          <div class="actor-info">
+            <h3>${actor.name}</h3>
+            <p>${actor.known_for_department || "배우"}</p>
+          </div>
+        </div>
+      `;
+      actorsGrid.innerHTML += actorCard;
+    });
+
+    AOS.refresh();
+  } catch (error) {
+    console.error("배우 정보를 불러오는데 실패했습니다:", error);
+  }
+};
+
+loadPopularActors();

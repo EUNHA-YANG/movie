@@ -16,8 +16,24 @@
       href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
     />
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <!-- 폰트 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Science+Gothic:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
+    <!-- header -->
+    <header class="navbar">
+      <div class="logo">🎬 EunHa Cinema</div>
+      <nav>
+        <a href="#visual">HOME</a>
+        <a href="#movieBoard">MOVIE</a>
+        <a href="#actors">ACTORS</a>
+      </nav>
+    </header>
     <!-- Swiper -->
     <section id="visual">
       <div class="swiper mySwiper">
@@ -30,14 +46,14 @@
         <p>마음에 드는 영화를 찾아보세요</p>
       </div>
     </section>
-
+    <!-- 메뉴바 -->
     <div class="menu">
       <button type="button" onclick="movie('now_playing')">현재상영작</button>
       <button type="button" onclick="movie('popular')">무비차트</button>
       <button type="button" onclick="movie('top_rated')">추천영화</button>
       <button type="button" onclick="movie('upcoming')">상영예정</button>
     </div>
-
+    <!-- 검색창 -->
     <div class="search">
       <input
         type="text"
@@ -47,10 +63,16 @@
       <button type="button" id="searchBtn">검색</button>
     </div>
 
+    <!-- 영화목록 -->
+    <div class="title"><h2>Movie List</h2></div>
     <section id="movieBoard"></section>
-
     <div class="more"><a href="#">더보기</a></div>
 
+    <!-- 인기배우 -->
+    <section id="actors" class="actors-section">
+      <h2>Popular Actors of the Month</h2>
+      <div class="actors-grid"></div>
+    </section>
     <footer>
       <p>© 2025 EnHa Movie. All rights reserved.</p>
     </footer>

@@ -20,15 +20,52 @@ body {
   position: relative;
   height: 100%;
   overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
-/* swiper */
+/* header */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 80px;
+  background: rgba(13, 13, 13, 0.95);
+  backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 50px;
+  z-index: 1000;
+  border-bottom: 1px solid rgba(255, 61, 61, 0.068);
+  font-family: "Science Gothic", sans-serif;
+}
+
+.logo {
+  font-size: 28px;
+  font-weight: bold;
+  color: #ff3d3d;
+  text-shadow: 0 0 20px rgba(255, 61, 61, 0.5);
+}
+
+.navbar nav a {
+  margin-left: 30px;
+  font-size: 18px;
+  transition: 0.8s;
+}
+
+.navbar nav a:hover {
+  color: #ff3d3d;
+  text-shadow: 0 0 10px rgba(255, 61, 61, 0.6);
+}
+
+/* visual */
 
 #visual {
   width: 100%;
-  height: 800px;
+  height: 100%;
   overflow: hidden;
   position: relative;
+  margin-top: 80px;
 }
 
 #visual .swiper {
@@ -40,18 +77,13 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center 10%;
 }
 #visual {
   width: 100%;
-  height: 800px;
+  height: 70vh;
   position: relative;
   overflow: hidden;
-  /* 배경 그라데이션 오버레이 */
-  background: linear-gradient(
-    to bottom,
-    rgba(13, 13, 13, 0.2),
-    rgba(13, 13, 13, 0.9)
-  );
 }
 
 /* 중앙 글귀 */
@@ -70,7 +102,7 @@ body {
   font-size: 50px;
   font-weight: 700;
   margin-bottom: 15px;
-  text-shadow: 0 4px 15px rgba(0, 0, 0, 0.7);
+  text-shadow: 0 4px 15px rgba(224, 222, 222, 0.7);
 }
 
 .visual-text p {
@@ -104,6 +136,26 @@ body {
   transform: translateY(-3px);
 }
 
+.title h2 {
+  text-align: center;
+  font-size: 36px;
+  margin-bottom: 50px;
+  font-family: "Science Gothic", sans-serif;
+  animation: floating 3s ease-in-out infinite;
+}
+
+@keyframes floating {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
 #movieBoard {
   width: 90%;
   margin: 50px auto;
@@ -120,6 +172,7 @@ body {
         2. gap - 1번값 */
   margin: 50px 0px;
 }
+
 img {
   width: 100%;
   height: 400px;
@@ -307,11 +360,11 @@ footer {
 
 @keyframes neonGlow {
   from {
-    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #7a0edf,
-      0 0 40px #5e1a96;
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #f81717,
+      0 0 40px #f51606;
   }
   to {
-    text-shadow: 0 0 20px #fff, 0 0 30px #5841df, 0 0 40px #2a35da,
+    text-shadow: 0 0 20px #fff, 0 0 30px #ee928c, 0 0 40px #2a35da,
       0 0 50px #ff6b6b, 0 0 60px #ff6b6b;
   }
 }
@@ -420,27 +473,157 @@ footer {
     transform: scale(1) rotate(0deg);
   }
 }
+
+/* 인기배우 */
+.actors-section {
+  width: 90%;
+  margin: 100px auto 50px;
+  padding: 50px 0;
+}
+
+.actors-section h2 {
+  text-align: center;
+  font-size: 36px;
+  margin-bottom: 50px;
+  font-family: "Science Gothic", sans-serif;
+  animation: floating 3s ease-in-out infinite;
+}
+
+@keyframes floating {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.actors-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.actor-card {
+  position: relative;
+  border-radius: 15px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+}
+
+.actor-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 15px 40px rgba(255, 61, 61, 0.4);
+}
+
+.actor-image {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.actor-card:hover .actor-image {
+  transform: scale(1.1);
+}
+
+.actor-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.95), transparent);
+  transition: all 0.3s ease;
+}
+
+.actor-info h3 {
+  font-size: 20px;
+  margin-bottom: 5px;
+  color: white;
+}
+
+.actor-info p {
+  font-size: 14px;
+  color: #ff6b6b;
+  margin: 0;
+}
+
+.actor-popularity {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(255, 61, 61, 0.9);
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+/* 반응형 추가 */
+
 @media (max-width: 1400px) {
   .card {
-    width: calc(33.33% - 20px); /* 3개씩 */
+    width: calc(33.33% - 20px);
   }
 }
 
 @media (max-width: 1024px) {
   .card {
-    width: calc(50% - 15px); /* 2개씩 */
+    width: calc(50% - 15px);
   }
 }
 
 @media (max-width: 768px) {
+  .navbar {
+    padding: 0 20px;
+  }
+
+  .logo {
+    font-size: 22px;
+  }
+
+  .navbar nav {
+    gap: 15px;
+  }
+
+  .navbar nav a {
+    margin-left: 15px;
+    font-size: 14px;
+  }
   .card {
-    width: calc(50% - 15px); /* 2개씩 유지 */
+    width: calc(50% - 15px);
     min-width: 160px;
+  }
+  .actors-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .actors-section h2 {
+    font-size: 28px;
   }
 }
 
 @media (max-width: 480px) {
   .card {
-    width: 100%; /* 1개씩 */
+    width: 100%;
+  }
+  .actors-grid {
+    grid-template-columns: 1fr;
+  }
+  .navbar nav {
+    display: none;
+  }
+
+  .logo {
+    font-size: 18px;
   }
 }
