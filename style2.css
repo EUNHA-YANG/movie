@@ -181,7 +181,7 @@ img {
 
 .search {
   width: 90%;
-  margin: 30px auto;
+  margin: 0px auto;
   display: flex;
   justify-content: center;
   gap: 10px;
